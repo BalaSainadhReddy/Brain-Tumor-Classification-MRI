@@ -1,94 +1,107 @@
-# Brain Tumor Classification with Grad-CAM Visualization
+# 🧠 Brain Tumor Classification & Grad-CAM Visualization
 
-This Streamlit application enables users to upload brain MRI images and perform tumor classification using a pre-trained ResNet18 model, with visualizations provided by various Grad-CAM techniques. The app supports four tumor classes: glioma, meningioma, no tumor, and pituitary.
+This project implements a deep learning model using ResNet18 to classify brain tumors from MRI scans and provides Grad-CAM visualizations to highlight important regions in the images.
 
-## Features
+## 📂 Project Structure
 
-- **Image Upload**: Upload brain MRI images in JPG or PNG format.
-- **Model Prediction**: Uses a pre-trained ResNet18 model to classify the uploaded image into one of four tumor classes.
-- **Grad-CAM Visualization**: Displays Grad-CAM heatmap for the predicted class, highlighting important regions for the model's decision.
-- **Multi-Target Grad-CAM**: Visualizes Grad-CAM heatmaps for all four classes alongside their predicted probabilities.
-- **CAM Methods Comparison**: Compares visualizations from different CAM methods (GradCAM, GradCAM++, XGradCAM, EigenCAM) for the predicted class.
-- **Responsive Design**: Adapts visualization sizes based on the browser window width.
+brain-tumors/
+├── app/ # Flask application
+├── model/ # Model training & Grad-CAM notebooks
+├── brain_tumor_resnet18.pth # Trained PyTorch model weights
+├── requirements.txt # Python dependencies
+├── README.md # This file
+└── .gitignore # Files & folders to exclude from version control
 
-## Requirements
+markdown
+Copy
+Edit
 
-- Python 3.8+
-- Streamlit
-- PyTorch
-- OpenCV
-- NumPy
-- Matplotlib
-- PIL (Pillow)
-- torchvision
-- pytorch-grad-cam
-- streamlit-js-eval
+## 🚀 Features
 
-Install dependencies using:
+- Predicts brain tumor classes from MRI images using ResNet18.
+- Generates Grad-CAM heatmaps to visualize model attention.
+- Flask web app for user-friendly interface.
 
-```bash
-pip install streamlit torch opencv-python numpy matplotlib pillow torchvision pytorch-grad-cam streamlit-js-eval
-```
+## ⚙️ Installation
 
-## Setup
-
-1. **Model File**:
-   - Place your pre-trained ResNet18 model file (`brain_tumor_resnet18.pth`) in the project directory.
-   - Update the `model_path` variable in `app.py` if the model file is located elsewhere.
-
-2. **Directory Structure**:
-   ```
-   project_directory/
-   ├── app.py
-   ├── brain_tumor_resnet18.pth
-   └── README.md
-   ```
-
-3. **Run the Application**:
+1. **Clone the repository**  
    ```bash
-   streamlit run app.py
-   ```
+   git clone https://github.com/<your-username>/brain-tumors.git
+   cd brain-tumors
+(Optional) Create a virtual environment
 
-## Usage
+bash
+Copy
+Edit
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+Install dependencies
 
-1. Open the app in your browser (typically at `http://localhost:8501`).
-2. Upload a brain MRI image (JPG or PNG).
-3. View the results:
-   - **Uploaded Image**: Displays the original MRI image.
-   - **Grad-CAM for Predicted Class**: Shows the Grad-CAM heatmap for the model's predicted tumor class.
-   - **Multi-Target Grad-CAM**: Displays heatmaps for all four classes with their respective probabilities.
-   - **Comparison of Different CAM Methods**: Compares visualizations from GradCAM, GradCAM++, XGradCAM, and EigenCAM.
+bash
+Copy
+Edit
+pip install -r requirements.txt
+🏃‍♂️ Usage
+Run the Flask app
 
-## Code Overview
+bash
+Copy
+Edit
+cd app
+python app.py
+Open your browser at http://127.0.0.1:5000.
 
-- **Model Loading**: Loads a pre-trained ResNet18 model with a modified fully connected layer for 4-class classification.
-- **Image Preprocessing**: Resizes images to 224x224, normalizes them, and converts them to tensors for model input.
-- **Grad-CAM Implementation**: Uses the `pytorch_grad_cam` library to generate heatmaps for model interpretability.
-- **Visualization**:
-  - Single-class Grad-CAM for the predicted class.
-  - Multi-class Grad-CAM for all classes with probability scores.
-  - Comparison of different CAM methods for the predicted class.
-- **Streamlit Interface**: Provides an interactive UI for image upload and result visualization.
+View Grad-CAM visualizations
+Check the Grad_cam/ notebook for generating heatmaps.
 
-## Notes
+📷 Example
 
-- Ensure the model file path is correct; otherwise, the app will stop with an error.
-- The app uses the last convolutional layer (`layer4[-1].conv2`) of ResNet18 for Grad-CAM visualizations.
-- Visualizations are normalized for display and use RGB format.
-- The app dynamically adjusts figure sizes based on browser window width for better viewing.
-- CUDA is used if available; otherwise, it falls back to CPU.
+Grad-CAM highlighting tumor regions.
 
-## Limitations
+📝 Credits
+This project is based on and adapted from an existing open-source project:
+🔗 Original Repository: Santhosh1503/Brain-Tumor-Classification-MRI
 
-- The model must be trained and saved as `brain_tumor_resnet18.pth` in the specified format.
-- Only JPG and PNG images are supported.
-- The app assumes the input images are brain MRIs; other image types may lead to unreliable predictions.
-- Visualization quality depends on the input image resolution and model performance.
+Model: ResNet18
 
-## Troubleshooting
+Visualization: Grad-CAM
 
-- **Model Not Found**: Verify the `brain_tumor_resnet18.pth` file exists in the specified path.
-- **Dependency Issues**: Ensure all required packages are installed with compatible versions.
-- **CUDA Errors**: If GPU is unavailable or misconfigured, the app automatically uses CPU.
-- **Visualization Issues**: Check browser compatibility or adjust the `page_width` calculation if figures appear misaligned.
+Improvements and frontend built using Flask.
 
+Additional enhancements, structuring, and explanations added by Your Name
+
+🛡️ License
+MIT License
+
+vbnet
+Copy
+Edit
+MIT License
+
+Copyright (c) 2025 <your-name>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+👨‍💻 Author
+Your Name — M.Bala Sainadh Reddy
+
+yaml
+Copy
+Edit
+
+---
+
+Would you like me to generate this as a downloadable `README.md` file for your GitHub project?
+
+
+
+
+
+
+
+
+Ask ChatGPT
