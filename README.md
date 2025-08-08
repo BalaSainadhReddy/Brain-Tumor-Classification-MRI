@@ -61,7 +61,7 @@ Grad-CAM highlighting tumor regions.
 
 📝 Credits
 This project is based on and adapted from an existing open-source project:
-🔗 Original Repository: Santhosh1503/Brain-Tumor-Classification-MRI
+🔗 Original Repository:(https://github.com/Vnadh/brain-tumors)
 
 Model: ResNet18
 
@@ -94,14 +94,3 @@ Copy
 Edit
 
 ---
-
-Would you like me to generate this as a downloadable `README.md` file for your GitHub project?
-
-
-
-
-
-
-
-
-Ask ChatGPT
