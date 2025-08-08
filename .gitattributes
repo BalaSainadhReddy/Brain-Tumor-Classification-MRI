@@ -1,0 +1,11 @@
+# Treat all text files as UTF-8 and normalize line endings
+* text=auto eol=lf
+
+# Mark Jupyter notebooks as binary to avoid merge conflicts
+*.ipynb binary
+
+# Scripts and code
+*.py text eol=lf
+*.sh text eol=lf
+*.md text eol=lf
+*.html text eol=lf
