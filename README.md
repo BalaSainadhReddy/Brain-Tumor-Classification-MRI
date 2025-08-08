@@ -89,8 +89,5 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 👨‍💻 Author
 Your Name — M.Bala Sainadh Reddy
 
-yaml
-Copy
-Edit
-
 ---
+
